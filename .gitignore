@@ -35,3 +35,12 @@ yarn-error.log*
 
 # typescript
 *.tsbuildinfo
+
+# Editor directories and files
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
