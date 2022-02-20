@@ -11,9 +11,13 @@
     "@emotion/react": "^11.7.1",
     "@emotion/styled": "^11.6.0",
     "@mui/material": "^5.4.0",
-    "next": "12.0.10",
+    "axios": "^0.26.0",
+    "next": "^12.1.0",
     "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "react-dom": "17.0.2",
+    "react-redux": "^7.2.6",
+    "redux": "^4.1.2",
+    "swr": "^1.2.2"
   },
   "devDependencies": {
     "@types/node": "17.0.15",
