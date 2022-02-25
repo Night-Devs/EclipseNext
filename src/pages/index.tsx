@@ -1,26 +1,12 @@
-import Header from '../components/layout/header'
-import Footer from '../components/layout/footer'
-import type { NextPage } from 'next'
-import Head from 'next/head'
+import { Layout } from "../components/layout";
+import type { NextPage } from "next";
 
 const Home: NextPage = () => {
   return (
-    <div>
-      <Head>
-        <title>Eclipse</title>
-      </Head>
+    <Layout>
+      <h1>Welcome to Eclipse</h1>
+    </Layout>
+  );
+};
 
-      <Header />
-
-      <main>
-        <h1>
-          Welcome to Eclipse
-        </h1>
-      </main>
-
-      <Footer />
-    </div>
-  )
-}
-
-export default Home
+export default Home;
