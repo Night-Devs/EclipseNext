@@ -1,50 +1,22 @@
-import { AppBar, Button, Toolbar, Typography } from "@mui/material";
-import Image from "next/image";
-import { Component, ReactNode } from "react";
+import React, { Component } from 'react'
+import Image from 'next/image'
+import Styles from './Header.module.scss'
+import Link from 'next/link'
 
-export class Header extends Component {
-  render(): ReactNode {
-    return (
-      <AppBar
-        position="static"
-        color="inherit"
-        sx={{
-          background: "none",
-          boxShadow: "none",
-        }}
-      >
-        <Toolbar>
-          <Button
-            color="inherit"
-            size="large"
-            disableRipple
-            sx={{
-              "&:hover": {
-                background: "none",
-              },
-            }}
-          >
-            <Image
-              alt="Eclipse Avatar"
-              src="/eclipse.svg"
-              width="40"
-              height="50"
-            />
-            <Typography
-              sx={{
-                ml: 0.5,
-                textTransform: "none",
-                fontFamily: "'Work Sans', sans-serif",
-                fontStyle: "normal",
-                fontWeight: "bold",
-                fontSize: "26px",
-              }}
-            >
-              Eclipse
-            </Typography>
-          </Button>
-        </Toolbar>
-      </AppBar>
-    );
-  }
+export default class Header extends Component {
+	render() {
+		return (
+			<div className={Styles.header}>
+				<div className='flex justify-center align-center m-left-50'>
+					<div className={Styles['header-logo-image']}>
+						<Image alt='Eclipse Avatar' width='100' height='100' objectFit='cover' src='/assets/images/logos/Eclipse.svg' />
+					</div>
+					<Link href='/'><a className='font-size-16 bold text-decoration-none'>Eclipse</a></Link>
+				</div>
+				<div className='m-right-50 font-size-15'>
+					Log In
+				</div>
+			</div>
+		)
+	}
 }

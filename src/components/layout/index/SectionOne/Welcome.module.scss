@@ -1,0 +1,57 @@
+.welcome-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  width: 100%;
+}
+
+.welcome {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    width: 85%;
+    height: 50vw;
+
+    animation: bg-animation 15s ease-in-out infinite;
+
+    background: url('/assets/images/general/discordBackground.svg') no-repeat center;
+    background-size: contain;
+}
+
+@keyframes bg-animation {
+  0% {
+    transform: translate(0, 2%);
+  }
+  25% {
+    transform: translate(0, -2%);
+  }
+  50% {
+    transform: translate(0, 2%);
+  }
+  75% {
+    transform: translate(0, -2%);
+  }
+  100% {
+    transform: translate(0, 2%);
+  }
+}
+
+.welcome-greeting {
+  padding-top: 15vw;
+  font-size: 2.5vw;
+}
+
+.welcome-about {
+  padding-top: 4.5vw;
+  width: 50vw;
+  text-align: center;
+  font-size: 1.6vw;
+}
+
+.welcome-ps {
+  font-size: 1vw;
+  padding-top: 11.25vw;
+}

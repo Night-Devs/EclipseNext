@@ -1,12 +1,24 @@
-import { Layout } from "../components/layout";
-import type { NextPage } from "next";
+import SectionThree from '../components/layout/index/SectionThree/SectionThree'
+import SectionTwo from '../components/layout/index/SectionTwo/SectionTwo'
+import SectionOne from '../components/layout/index/SectionOne/SectionOne'
+import Styles from './index.module.scss'
+import type { NextPage } from 'next'
+import Head from 'next/head'
 
 const Home: NextPage = () => {
   return (
-    <Layout>
-      <h1>Welcome to Eclipse</h1>
-    </Layout>
-  );
-};
+    <div className={Styles.app}>
+      <Head>
+          <title>Eclipse</title>
+      </Head>
 
-export default Home;
+      <main className={Styles.main}>
+        <SectionOne />
+        <SectionTwo />
+        <SectionThree />
+      </main>
+    </div>
+  )
+}
+
+export default Home

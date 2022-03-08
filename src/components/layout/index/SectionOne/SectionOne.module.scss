@@ -1,0 +1,35 @@
+.section-one {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+
+    background: linear-gradient(-30deg, #2A2A2A, #2A2A2A 50%,#7762D2 50%);
+}
+
+@keyframes arrow-animation {
+    0% {
+        transform: translate(0, 25%);
+    }
+    25% {
+        transform: translate(0, -25%);
+    }
+    50% {
+        transform: translate(0, 25%);
+    }
+    75% {
+        transform: translate(0, -25%);
+    }
+    100% {
+        transform: translate(0, 25%);
+    }
+}
+
+.arrow-down {
+    padding-top: 5vw;
+    width: 2vw;
+    height: 4vw;
+    background: url('/assets/images/general/arrowDown.png') no-repeat center;
+    background-size: contain;
+    animation: arrow-animation 5s ease-in-out infinite;
+}
