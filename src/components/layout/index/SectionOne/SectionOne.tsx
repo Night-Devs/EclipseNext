@@ -1,7 +1,7 @@
 import Styles from './SectionOne.module.scss'
 import React, { Component } from 'react'
 import Welcome from './Welcome'
-import Header from '../../Header'
+import Header from '../../../general/Header'
 
 export default class SectionOne extends Component {
     render() {

@@ -23,8 +23,8 @@ export default class SectionTwo extends Component {
 
         return (
             <section className='flex align-center flex-column m-top-40'>
-                <h1 className='font-size-25'>Что я умею?</h1>
-                <ul className={`flex align-center flex-column ${Styles.opportunities}`}>
+                <h1 className='font-size-25 m-bottom-10'>Что я умею?</h1>
+                <ul className='flex align-center flex-column'>
                     {opportunities.map((val, index) =>
                         <li className='flex m-top-18 justify-center' key={index}>
                             <Opportunity
