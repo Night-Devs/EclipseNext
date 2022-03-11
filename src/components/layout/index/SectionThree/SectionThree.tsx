@@ -1,7 +1,7 @@
-import React, { Component } from 'react'
-import Footer from '../../../general/Footer'
-import Styles from './SectionThree.module.scss'
 import Chapter, { ChapterProps } from './Chapter'
+import Styles from './SectionThree.module.scss'
+import Footer from '../../../general/Footer'
+import React, { Component } from 'react'
 
 export default class SectionThree extends Component {
     render() {

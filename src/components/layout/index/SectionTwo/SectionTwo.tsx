@@ -1,6 +1,5 @@
 import Opportunity, { OpportunityObject } from './Opportunity'
 import React, { Component } from 'react'
-import Styles from './SectionTwo.module.scss'
 
 export default class SectionTwo extends Component {
     render() {

@@ -13,8 +13,9 @@ export default class Header extends Component {
 					</div>
 					<Link href='/'><a className='font-size-16 bold text-decoration-none'>Eclipse</a></Link>
 				</div>
-				<div className='m-right-50 font-size-15'>
-					Log In
+				<div className='flex flex-row m-right-50 align-center'>
+					<img className='width-v-3 height-v-2' src='/assets/images/general/signIn.svg' alt='Sign In Icon' />
+					<span className='font-size-13 bold m-left-2'>ВОЙТИ</span>
 				</div>
 			</div>
 		)

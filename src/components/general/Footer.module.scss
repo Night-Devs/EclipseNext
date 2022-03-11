@@ -1,0 +1,32 @@
+
+// .logo {
+//     background-color: red;
+//     -webkit-mask: url(logo.svg) no-repeat center;
+//     mask: url(logo.svg) no-repeat center;
+//   }
+
+.icon {
+    background-color: #949494;
+    mask-size: contain;
+
+    transition-duration: .4s;
+}
+.icon:hover {
+    background-color: #9775fa;
+}
+
+.mail-icon {
+    @extend .icon;
+    mask: url(/assets/images/general/mail.svg) no-repeat center;
+    mask-size: contain;
+}
+.discord-icon {
+    @extend .icon;
+    mask: url(/assets/images/logos/discord.svg) no-repeat center;
+    mask-size: contain;
+}
+.github-icon {
+    @extend .icon;
+    mask: url(/assets/images/logos/github.svg) no-repeat center;
+    mask-size: contain;
+}

@@ -1,6 +1,6 @@
-import Image from 'next/image'
-import React, { Component } from 'react'
 import Styles from './Opportunity.module.scss'
+import React, { Component } from 'react'
+import Image from 'next/image'
 
 interface OpportunityProps {
     imagePath: string,

@@ -5,7 +5,10 @@
     /* color: #e6e0e0; */
     font-family: 'Work Sans';
 }
-
+main, body, html, #__next {
+    height: 100%;
+    min-height: 100%;
+}
 ul, ol {
     list-style: none;
 }
@@ -33,16 +36,27 @@ body {
     border-radius: 0.25vw;
 
     transition-duration: .4s;
-    cursor: alias;
+    cursor: pointer;
 }
+
+.pointer {
+    cursor: pointer;
+}
+
 .btn:hover {
     outline-width: .1vw;
-
     background-color: transparent;
 }
 
 .bg-dark-gray {
     background-color: #2A2A2A;
+}
+
+.bg-purple-skew {
+    background: linear-gradient(-30deg, #2A2A2A, #2A2A2A 50%,#7762D2 50%);
+}
+.bg-red-skew {
+    background: linear-gradient(-30deg, #2A2A2A, #2A2A2A 50%, #c92a2a 50%);
 }
 
 .radius-05 {

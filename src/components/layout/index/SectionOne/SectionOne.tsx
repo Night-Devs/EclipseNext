@@ -1,12 +1,12 @@
 import Styles from './SectionOne.module.scss'
+import Header from '../../../general/Header'
 import React, { Component } from 'react'
 import Welcome from './Welcome'
-import Header from '../../../general/Header'
 
 export default class SectionOne extends Component {
     render() {
         return (
-            <section className={Styles['section-one']}>
+            <section className='bg-purple-skew flex flex-column width-100 align-center'>
                 <Header />
                 <Welcome />
                 <div className={Styles['arrow-down']}></div>
