@@ -1,0 +1,10 @@
+.guild {
+    width: 12vw;
+    height: 12vw;
+
+    transition-duration: .5s;
+}
+
+.guild:hover {
+    transform: translate(0, -1.5vw);
+}

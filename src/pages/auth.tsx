@@ -45,7 +45,7 @@ class AuthPage extends Component<WithRouterProps, AuthPageState> {
                 return this.setState({counter: this.state.counter -1})
             if (error)
                 return this.props.router.push('https://discord.com/api/oauth2/authorize?client_id=857545309781360661&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Fauth&response_type=code&scope=identify%20guilds')
-            this.props.router.push('/dashboard/guilds')
+            this.props.router.push('/dashboard/list')
         }, 1000)
     }
 

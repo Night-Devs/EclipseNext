@@ -2,13 +2,19 @@
 
 * {
     color: #fff;
-    /* color: #e6e0e0; */
     font-family: 'Work Sans';
+    z-index: 1;
 }
+
 main, body, html, #__next {
     height: 100%;
     min-height: 100%;
 }
+
+a {
+    text-decoration: none;
+}
+
 ul, ol {
     list-style: none;
 }
@@ -43,6 +49,7 @@ body {
     cursor: pointer;
 }
 
+
 .btn:hover {
     outline-width: .1vw;
     background-color: transparent;
@@ -59,11 +66,20 @@ body {
     background: linear-gradient(-30deg, #2A2A2A, #2A2A2A 50%, #c92a2a 50%);
 }
 
-.radius-05 {
+.radius-0\.5 {
     border-radius: .5vw;
 }
 .radius-1 {
     border-radius: 1vw;
+}
+.radius-1\.5 {
+    border-radius: 1.5vw;
+}
+.radius-2 {
+    border-radius: 2vw;
+}
+.radius-2\.5 {
+    border-radius: 2.5vw;
 }
 
 /* Object Fit */
@@ -74,10 +90,33 @@ body {
     object-fit: cover;
 }
 
+
+/* z-indexes */
+.z-0 {
+    z-index: 0;
+}
+.z-1 {
+    z-index: 1;
+}
+
+
 /* Positions */
+.absolute {
+    position: absolute;
+}
+
 .relative {
     position: relative;
 }
+
+.fixed {
+    position: fixed;
+}
+
+.static {
+    position: static;
+}
+
 
 /* Flexes */
 .flex {
@@ -584,6 +623,28 @@ body {
 .m-top-100 {
     margin-top: 10vw;
 }
+.m-top-105 {
+    margin-top: 10.5vw;
+}
+.m-top-110 {
+    margin-top: 11vw;
+}
+.m-top-115 {
+    margin-top: 11.5vw;
+}
+.m-top-120 {
+    margin-top: 12vw;
+}
+.m-top-125 {
+    margin-top: 12.5vw;
+}
+.m-top-130 {
+    margin-top: 13vw;
+}
+.m-top-135 {
+    margin-top: 13.5vw;
+}
+
 
 /* Margins left */
 .m-left-1 {
