@@ -6,6 +6,9 @@ import React, { Component } from 'react'
 import Styles from './auth.module.scss'
 import dynamic from 'next/dynamic'
 import Link from 'next/link'
+import { useDispatch } from 'react-redux'
+import { setTokenAction } from '../store/authReducer'
+import { store } from '../store'
 
 interface AuthPageState {
     counter: number
@@ -40,11 +43,17 @@ class AuthPage extends Component<WithRouterProps, AuthPageState> {
         
         this.setState({token, user, error})
 
+        if (token) {
+            const dispatch = store.dispatch
+            dispatch(setTokenAction(token))
+        }
+
         setInterval(() => {
             if (this.state.counter > 0)
                 return this.setState({counter: this.state.counter -1})
             if (error)
-                return this.props.router.push('https://discord.com/api/oauth2/authorize?client_id=857545309781360661&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Fauth&response_type=code&scope=identify%20guilds')
+                return
+                // return this.props.router.push('https://discord.com/api/oauth2/authorize?client_id=857545309781360661&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Fauth&response_type=code&scope=identify%20guilds')
             this.props.router.push('/dashboard/list')
         }, 1000)
     }
@@ -72,7 +81,7 @@ class AuthPage extends Component<WithRouterProps, AuthPageState> {
                         <span className='font-size-15 m-top-10 text-center'>
                             <p>
                                 {this.state.error   ? <>Следующая попытка авторизоваться</>
-                                                    : <>Перенаправление на <Link href='/dashboard/guilds'><span className='pointer bold'>панель управления</span></Link></>}
+                                                    : <>Перенаправление на <Link href='/dashboard/list'><span className='pointer bold'>панель управления</span></Link></>}
                             </p>
                             <p>через <span className='bold'>{this.state.counter}</span> секунд</p>
                         </span>

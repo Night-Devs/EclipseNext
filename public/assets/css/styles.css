@@ -19,7 +19,7 @@ ul, ol {
     list-style: none;
 }
 
-p, h1, h2, h3, h4, h5, h6, span, ul, li, button {
+p, h1, h2, h3, h4, h5, h6, span, ul, li, input, button {
     font-family: 'Work Sans', sans-serif;
     font-weight: 300;
     padding: 0;
@@ -142,6 +142,15 @@ body {
 .justify-sb {
     justify-content: space-between;
 }
+
+.justify-start {
+    justify-content: flex-start;
+}
+
+.justify-end {
+    justify-content: flex-end;
+}
+
 
 /* Widths */
 .width-10 {

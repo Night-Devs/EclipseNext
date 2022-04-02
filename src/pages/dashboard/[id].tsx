@@ -4,6 +4,7 @@ import Footer from '../../components/general/Footer'
 import { withRouter } from 'next/router'
 import Styles from './guild.module.scss'
 import { Component } from 'react'
+import AutoGreetings from '../../components/layout/dashboard/pages/AutoGreetings'
 
 class Guild extends Component<WithRouterProps> {
     render() {
@@ -18,18 +19,45 @@ class Guild extends Component<WithRouterProps> {
             <div>
                 <div className={Styles.background}></div>
                 <Header />
-                <div className='relative p-top-40 p-left-60 flex flex-row justify-sb'>
-                    <div>
-                        <h1>{guild.name}</h1>
-                        <p>Участников: {guild.members_count}</p>
+                <div className='relative p-top-10 flex flex-column'>
+                    <div className='p-left-60 flex flex-row justify-sb'>
+                        <div className='p-top-40'>
+                            <h1 className='font-size-25'>{guild.name}</h1>
+                            <p className='font-size-15'>Участников: {guild.members_count}</p>
+                        </div>
+                        <div className='p-right-60'>
+                            <img className={Styles.icon__image} src={`https://cdn.discordapp.com/icons/${guild.id}/${guild.icon_hash}.webp`} alt={guild.name} />
+                        </div>
                     </div>
-                    <div>
-                        <img src={`https://cdn.discordapp.com/icons/${guild.id}/${guild.icon_hash}.webp`} alt={guild.name} />
+                    <div className='p-left-30 p-top-10 p-right-30'>
+                        <nav>
+                            <ul className='flex justify-sb font-size-15'>
+                                <li className={Styles.selected}>
+                                    Общее
+                                </li>
+                                <li>
+                                    Приватные комнаты
+                                </li>
+                                <li>
+                                    Аудит
+                                </li>
+                                <li>
+                                    Лидеры
+                                </li>
+                                <li>
+                                    Авто-модерация
+                                </li>
+                                <li>
+                                    Кастомные команды
+                                </li>
+                            </ul>
+                        </nav>
                     </div>
                 </div>
                 <div className={Styles.content}>
+                    <AutoGreetings />
                 </div>
-                <Footer />
+                <Footer style={{paddingTop: '21vw'}}/>
             </div>
         )
     }

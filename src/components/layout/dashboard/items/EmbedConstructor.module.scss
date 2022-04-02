@@ -1,0 +1,64 @@
+.embedConstrucor {
+    display: flex;
+    flex-direction: column;
+    background: #2F3136;
+    width: 35vw;
+    padding-left: 0.75vw;
+    border-radius: 0.5vw;
+    font-size: 1.3vw;
+}
+
+.input-color {
+    // background: #151618;
+    background: none;
+    height: 2.5vw;
+    text-transform: uppercase;
+    // padding-inline: 1vw;
+    outline: 0;
+    width: 6vw;
+    border: 0;
+    border-radius: 0.5vw;
+}
+
+.input {
+    background: #151618;
+    height: 2.5vw;
+    padding-inline: 1vw;
+    margin-left: 0.5vw;
+    font-size: 1.3vw;
+    width: 20vw;
+    border-radius: 0.5vw;
+
+    border: 0;
+    outline: 0;
+}
+
+.input-area {
+    background: #151618;
+    border: 0;
+    outline: 0;
+    border-radius: 0.5vw;
+    resize: none;
+
+    width: 25vw;
+    height: 10vw;
+}
+
+.input-area-small {
+    background: #151618;
+    border: 0;
+    outline: 0;
+    border-radius: 0.5vw;
+    resize: none;
+
+    width: 21.6vw;
+    height: 5vw;
+}
+
+.field-separator {
+    width: 30vw;
+    border: #202121 solid 0.1vw;
+    margin: 0;
+    margin-left: 0.5vw;
+    margin-block: 0.5vw;
+}

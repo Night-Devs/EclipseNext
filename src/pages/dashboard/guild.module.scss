@@ -1,5 +1,16 @@
 .content {
-    padding-top: 21vw;
+    padding-top: 2vw;
+}
+
+.icon__image {
+    border-radius: 100vw;
+    width: 15vw;
+    height: 15vw;
+}
+
+.selected {
+    padding-inline: 0.3vw;
+    border-bottom: 0.2vw solid #7762D2;
 }
 
 .background {
