@@ -1,25 +1,10 @@
-import { ChangeEvent, useState } from 'react'
+import { Author, Field, Title } from '../../../../types/Discord'
 import Styles from './EmbedConstructor.module.scss'
-
-interface Field {
-    name?: string,
-    value?: string,
-    inline?: boolean,
-}
-
-interface Author {
-    name?: string
-    url?: string
-    iconUrl?: string
-}
-interface Title {
-    name?: string
-    url?: string
-}
+import { ChangeEvent, useState } from 'react'
 
 type HexString = `#${string}` | undefined
 
-export default function EmbedConstrucor() {
+export default function EmbedConstrucor({isDisabled = false}: {isDisabled?: boolean}) {
     const [lineColor, setLineColor] = useState<HexString>('#fff')
     const [author, setAuthor] = useState<Author>({})
     const [title, setTitle] = useState<Title>({})
@@ -80,54 +65,49 @@ export default function EmbedConstrucor() {
         }
     }
 
-    const handleAddField = (event: React.MouseEvent<HTMLSpanElement, MouseEvent>) => {
-        setFields([...fields, {}])
-    }
+    const handleAddField = () => setFields([...fields, {}])
 
     return (
         <div className={Styles.embedConstrucor} style={{borderLeft: '#fff solid 0.55vw'}}>
             <span className='flex align-center'>
                 Line Color:
-                <input onChange={handleChangeField} className={Styles['input-color']} name='color' type='color' />
+                <input onChange={handleChangeField} className={Styles['input-color']} disabled={isDisabled} name='color' type='color' />
             </span>
             <span className='flex flex-column'>
                 <div className='flex align-center width-v-35 p-bottom-5'>
-                    Author: <input onChange={handleChangeField} className={Styles.input} name='author' type='text' />
+                    Author: <input onChange={handleChangeField} className={Styles.input} disabled={isDisabled} name='author' type='text' />
                 </div>
                 <span className='flex font-size-10 p-bottom-5 justify-end align-center' style={{width: 'auto', marginRight: '8vw'}}>
-                    URL: <input onChange={handleChangeField} className={Styles.input} name='authorUrl' type='text' />
+                    URL: <input onChange={handleChangeField} className={Styles.input} disabled={isDisabled} name='authorUrl' type='text' />
                 </span>
                 <span className='flex font-size-10 p-bottom-8 justify-end align-center' style={{width: 'auto', marginRight: '8vw'}}>
-                    Icon URL: <input onChange={handleChangeField} className={Styles.input} name='authorIconUrl' type='text' />
+                    Icon URL: <input onChange={handleChangeField} className={Styles.input} disabled={isDisabled} name='authorIconUrl' type='text' />
                 </span>
             </span>
             <span className='flex flex-column'>
                 <div className='flex align-center width-v-35 p-bottom-5'>
-                    Title: <input onChange={handleChangeField} className={Styles.input} name='title' type='text' />
+                    Title: <input onChange={handleChangeField} className={Styles.input} disabled={isDisabled} name='title' type='text' />
                 </div>
                 <span className='flex font-size-10 p-bottom-5 justify-end align-center' style={{width: 'auto', marginRight: '9.5vw'}}>
-                    URL: <input onChange={handleChangeField} className={Styles.input} name='titleUrl' type='text' />
+                    URL: <input onChange={handleChangeField} className={Styles.input} disabled={isDisabled} name='titleUrl' type='text' />
                 </span>
             </span>
             <span className='flex flex-column p-bottom-10'>
                 Description:
-                <textarea onChange={handleChangeField} className={Styles['input-area']} name='description' />
+                <textarea onChange={handleChangeField} className={Styles['input-area']} disabled={isDisabled} name='description' />
             </span>
             <span>
                 Fields:
                 <ul>
                     {
                         fields.length
-                        ? fields.map((field, index) => {
-                            // I'm not very sure about this
-                            const key = new Date().valueOf() + index * (Math.random() * 1000)
-                            
-                            return <li key={key} className='flex flex-column justify-start'>
+                        ? fields.map((_field, index) => 
+                            <li key={index} className='flex flex-column justify-start'>
                                 <input onChange={handleChangeField} className={Styles.input} name='fieldName' type='text'/>
-                                <textarea className={`${Styles['input-area-small']} m-top-5 m-left-5`} name='fieldValue' />
+                                <textarea className={`${Styles['input-area-small']} m-top-5 m-left-5`} disabled={isDisabled} name='fieldValue' />
                                 <hr className={Styles['field-separator']} />
                             </li>
-                        })
+                        )
                         : <li className='m-bottom-5'>Looks like you hasn't added any fields</li>
                     }
                 </ul>
@@ -136,10 +116,10 @@ export default function EmbedConstrucor() {
                 </span>
                 <span className='flex flex-column'>
                     <div className='flex align-center width-v-35 p-bottom-5'>
-                        Footer: <input onChange={handleChangeField} className={Styles.input} name='footer' type='text' />
+                        Footer: <input onChange={handleChangeField} className={Styles.input} disabled={isDisabled} name='footer' type='text' />
                     </div>
                     <span className='flex font-size-10 p-bottom-5 justify-end align-center' style={{width: 'auto', marginRight: '8vw'}}>
-                        Icon URL: <input onChange={handleChangeField} className={Styles.input} name='footerIconUrl' type='text' />
+                        Icon URL: <input onChange={handleChangeField} className={Styles.input} disabled={isDisabled} name='footerIconUrl' type='text' />
                     </span>
                 </span>
             </span>

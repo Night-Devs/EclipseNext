@@ -1,26 +1,16 @@
-.content {
-    padding-top: 2vw;
-}
-
 .icon__image {
     border-radius: 100vw;
     width: 15vw;
     height: 15vw;
 }
 
-.selected {
-    padding-inline: 0.3vw;
-    border-bottom: 0.2vw solid #7762D2;
-}
-
 .background {
     width: 100%;
     height: 27vw;
 
-    z-index: 0 !important;
+    z-index: -1 !important;
     position: absolute;
 
-    background: url('/assets/images/general/abstractBackground.png') no-repeat top;
     background-size: contain;
 }
 
@@ -28,7 +18,6 @@
     content: '';
 
     position: absolute;
-    z-index: 0 !important;
 
     width: 100%;
     height: 100%;

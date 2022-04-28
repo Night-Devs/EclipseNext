@@ -1,4 +1,39 @@
 .arrowDown {
     width: 4vw;
     height: 4vw;
+    transition-duration: .5s;
+    cursor: pointer;
+}
+
+@keyframes animatedAppearence {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes animatedDisappearence {
+    0% {
+        opacity: 1;
+    }
+    99% {
+        position: absolute;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+.animatedAppearence {
+    animation: animatedAppearence normal;
+    animation-duration: 750ms;
+    display: block;
+}
+
+.animatedDisappearence {
+    animation: animatedDisappearence normal;
+    animation-duration: 750ms;
+    display: none;
 }

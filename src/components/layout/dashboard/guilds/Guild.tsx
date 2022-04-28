@@ -14,7 +14,6 @@ export default class Guild extends Component<GuildProps> {
             <div className={Styles.guild}>
                 <div className='absolute'>
                     <div className={Styles['guild-icon']}>
-                        {/* src='https://badenguide.ru/wp-content/uploads/2016/06/res8192.png' */}
                         <img className={`${Styles['guild-icon__image']} absolute width-v-12 height-v-12`} src={`https://cdn.discordapp.com/icons/${this.props.id}/${this.props.avatarHash}.webp`} alt={this.props.name} />
                     </div>
                 </div>

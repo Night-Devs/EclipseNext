@@ -3,7 +3,6 @@
 * {
     color: #fff;
     font-family: 'Work Sans';
-    z-index: 1;
 }
 
 main, body, html, #__next {
@@ -19,15 +18,11 @@ ul, ol {
     list-style: none;
 }
 
-p, h1, h2, h3, h4, h5, h6, span, ul, li, input, button {
+a, p, h1, h2, h3, h4, h5, h6, span, ul, li, input, button {
     font-family: 'Work Sans', sans-serif;
     font-weight: 300;
     padding: 0;
     margin: 0;
-}
-
-body {
-    background: #2B2A2A;
 }
 
 .btn {
@@ -49,6 +44,23 @@ body {
     cursor: pointer;
 }
 
+
+/* Normal scrollbar */
+/*
+html::-webkit-scrollbar {
+    width: 1vw;
+}
+
+html::-webkit-scrollbar-track {
+    background: #2b2a2a80;
+    opacity: 0;
+}
+
+html::-webkit-scrollbar-thumb {
+    background: #7762d2;
+    border-radius: 10vw;
+}
+*/
 
 .btn:hover {
     outline-width: .1vw;
@@ -98,7 +110,9 @@ body {
 .z-1 {
     z-index: 1;
 }
-
+.z-2 {
+    z-index: 1;
+}
 
 /* Positions */
 .absolute {

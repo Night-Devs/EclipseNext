@@ -1,28 +1,36 @@
-// import axios, { AxiosResponse } from 'axios'
-// import { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
+import { getToken } from '../services/auth'
 
-export default function useCode(code: string) {
-  // const [response, setResponse] = useState<Promise<AxiosResponse>>()
+interface UseTokenResponse {
+    accessToken?: string,
+    refreshToken?: string,
+    expiresIn?: number,
+    scope?: string,
+    isLoading: boolean,
+    isError: boolean,
+    reason?: string,
+}
 
-  // let awaitedResponse: AxiosResponse | undefined
+export default function useToken(code: string) {
+    const [response, setResponse] = useState<UseTokenResponse>({
+        accessToken: undefined,
+        refreshToken: undefined,
+        expiresIn: undefined,
+        scope: undefined,
+        isLoading: true,
+        isError: false,
+        reason: undefined,
+    })
 
-  // useEffect(() => {
-  //   setResponse(axios.post('http://localhost:4000/auth/token', { code }).then(response => awaitedResponse = response))
-  // })
+    useEffect(() => {
+        getToken(code)
+            .then(response => setResponse({...response, isLoading: false, isError: false}))
+            .catch(reason => setResponse({
+                reason: reason,
+                isLoading: false,
+                isError: true,
+            }))
+    }, [])
 
-  // // Мы же ведь все знаем как работает стек-вызовов и что если мы попытаемся await'нуть response, до того как выолнится useEffect будет пиздец?
-  // while (!awaitedResponse)
-  //   continue
-  
-  // if (!awaitedResponse.data.accessToken                ||
-  //     !awaitedResponse.data.refreshToken               ||
-  //     !awaitedResponse.data.expiresIn                  ||
-  //     !awaitedResponse.data.scope.includes('identify') ||
-  //     !awaitedResponse.data.scope.includes('guilds'))
-  // return new Error(`Failed to get token with that code: "${code}"\n` +
-  //                  `Status Code: ${awaitedResponse.status};\n` +
-  //                  `Status Text: ${awaitedResponse.statusText};\n` +
-  //                  `Server Response: ${awaitedResponse}`)
-  
-  // return awaitedResponse.data
+    return response
 }

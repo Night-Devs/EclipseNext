@@ -1,10 +1,3 @@
-
-// .logo {
-//     background-color: red;
-//     -webkit-mask: url(logo.svg) no-repeat center;
-//     mask: url(logo.svg) no-repeat center;
-//   }
-
 .icon {
     background-color: #949494;
     mask-size: contain;
@@ -22,11 +15,11 @@
 }
 .discord-icon {
     @extend .icon;
-    mask: url(/assets/images/logos/discord.svg) no-repeat center;
+    mask: url(/assets/images/logos/Discord.svg) no-repeat center;
     mask-size: contain;
 }
 .github-icon {
     @extend .icon;
-    mask: url(/assets/images/logos/github.svg) no-repeat center;
+    mask: url(/assets/images/logos/GitHub.svg) no-repeat center;
     mask-size: contain;
 }

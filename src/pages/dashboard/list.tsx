@@ -9,25 +9,20 @@ import Link from 'next/link'
 import { store } from '../../store'
 
 interface GuildsPageState {
-	guilds: any[]
+	guilds?: any[]
 }
 
 class Guilds extends Component<{}, GuildsPageState> {
-	constructor (props: {}) {
-		super(props)
-
-		this.state = {
-			guilds: []
-		}
-	}
-	
 	async componentDidMount() {
-		const guilds = (await getGuilds(store.getState().auth.token))
-			.filter((guild: any) => (+guild.permissions & 0x0000000000000020) == 0x0000000000000020)
+		const guilds = await getGuilds(store.getState().auth.token)
 
-		this.setState({guilds: guilds})
+		if (guilds instanceof Error) {
+			return // TODO: Redirect to error page
+		}
 
-		console.log(guilds)
+		const filteredGuilds = guilds.filter((guild: any) => (+guild.permissions & 0x0000000000000020) == 0x0000000000000020)
+
+		this.setState({guilds: filteredGuilds})
 	}
 
 	render() {
@@ -36,12 +31,12 @@ class Guilds extends Component<{}, GuildsPageState> {
 				<Header />
 				<div style={{flex: 1}} className='flex flex-column align-center'>
 					<h1 className='m-top-20'>Пожалуйста, выберите сервер</h1>
-					{!this.state.guilds.length
+					{!this.state.guilds
 					? <>
 						{/* TODO: Loading Animation */}
 					</>
 					:
-						<ul className='m-top-20 flex flex-row width-v-80' style={{flexWrap: 'wrap', gap: '2.5vw'}}>
+						<ul className='m-top-20 flex m-left-60 flex-row width-v-80' style={{flexWrap: 'wrap', gap: '2.5vw'}}>
 								{this.state.guilds.map((guild: any) =>
 									<li className={Styles.guild} key={guild.id}>
 										<Link href={`/dashboard/${encodeURIComponent(guild.id)}`}>

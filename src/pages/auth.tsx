@@ -6,7 +6,6 @@ import React, { Component } from 'react'
 import Styles from './auth.module.scss'
 import dynamic from 'next/dynamic'
 import Link from 'next/link'
-import { useDispatch } from 'react-redux'
 import { setTokenAction } from '../store/authReducer'
 import { store } from '../store'
 
@@ -32,11 +31,9 @@ class AuthPage extends Component<WithRouterProps, AuthPageState> {
         const code = new URLSearchParams(this.props.router.asPath).get('/auth?code')
 
         const tokenResponse = await getToken(code || '')
-        
         const token = tokenResponse instanceof Error ? ' ' : tokenResponse.accessToken
 
         const userResponse = await getUser(token)
-
         const user = userResponse instanceof Error ? {} : userResponse
 
         const error = !code || tokenResponse instanceof Error || userResponse instanceof Error
@@ -52,8 +49,7 @@ class AuthPage extends Component<WithRouterProps, AuthPageState> {
             if (this.state.counter > 0)
                 return this.setState({counter: this.state.counter -1})
             if (error)
-                return
-                // return this.props.router.push('https://discord.com/api/oauth2/authorize?client_id=857545309781360661&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Fauth&response_type=code&scope=identify%20guilds')
+                return this.props.router.push('https://discord.com/api/oauth2/authorize?client_id=857545309781360661&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Fauth&response_type=code&scope=identify%20guilds')
             this.props.router.push('/dashboard/list')
         }, 1000)
     }

@@ -37,7 +37,7 @@ export async function getUser(token: string) {
     }
 }
 
-export async function getGuilds(token: string) {
+export async function getGuilds(token: string): Promise<any[] | Error> {
     try {
         const response = await axios.get('https://discord.com/api/v10/users/@me/guilds', {
             headers: {
@@ -55,4 +55,9 @@ export async function getGuilds(token: string) {
     } catch(e) {
         return new Error(`Failed to get user guilds info with that token: "${token}"\nServer returned an error.`)
     }
+}
+
+export async function getGuild(token: string, id: string): Promise<any | Error> {
+    const guilds = await getGuilds(token)
+    return guilds instanceof Error ? guilds : guilds.find(guild => guild.id == id)
 }
