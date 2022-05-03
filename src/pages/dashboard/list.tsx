@@ -1,20 +1,25 @@
-import Guild from '../../components/layout/dashboard/guilds/Guild'
-import Footer from '../../components/general/Footer'
-import Header from '../../components/general/Header'
-import { getGuilds } from '../../services/auth'
+import Guild from '../../components/layout/dashboard/guilds/Guild/Guild'
+import Header from '../../components/general/Header/Header'
+import Footer from '../../components/general/Footer/Footer'
+import OAuth2 from '../../controllers/Discord.controller'
 import Styles from './list.module.scss'
+import { store } from '../../store'
 import dynamic from 'next/dynamic'
 import { Component } from 'react'
 import Link from 'next/link'
-import { store } from '../../store'
 
 interface GuildsPageState {
 	guilds?: any[]
 }
 
 class Guilds extends Component<{}, GuildsPageState> {
+	constructor (props: {}) {
+		super(props)
+
+		this.state = {}
+	}
 	async componentDidMount() {
-		const guilds = await getGuilds(store.getState().auth.token)
+		const guilds = await OAuth2.getGuilds(store.getState().token.accessToken)
 
 		if (guilds instanceof Error) {
 			return // TODO: Redirect to error page

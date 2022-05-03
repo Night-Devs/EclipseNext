@@ -1,11 +1,11 @@
-import { useRouter } from 'next/router'
+import SecondaryHeader from '../layout/dashboard/items/SecondaryHeader/SecondaryHeader'
 import { Dispatch, ReactNode, SetStateAction, useEffect, useState } from 'react'
-import { getGuild } from '../../services/auth'
-import { store } from '../../store'
+import OAuth2 from '../../controllers/Discord.controller'
+import Footer from '../general/Footer/Footer'
+import Header from '../general/Header/Header'
 import { Guild } from '../../types/Discord'
-import Footer from '../general/Footer'
-import Header from '../general/Header'
-import SecondaryHeader from '../layout/dashboard/items/SecondaryHeader'
+import { useRouter } from 'next/router'
+import { store } from '../../store'
 
 export default function Dashboard({children, onGuild}: {children: ReactNode, onGuild?: Dispatch<SetStateAction<Guild | undefined>>}) {
     const [guild, setGuild] = useState<Guild>()
@@ -15,7 +15,7 @@ export default function Dashboard({children, onGuild}: {children: ReactNode, onG
         if (!router.isReady)
             return
         
-        getGuild(store.getState().auth.token, router.query.id as string)
+        OAuth2.getGuild(store.getState().token.accessToken, router.query.id as string)
             .then(guild => (setGuild(guild), onGuild && onGuild(guild)))
     }, [router.isReady])
 

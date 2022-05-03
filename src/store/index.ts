@@ -1,10 +1,10 @@
 import { persistStore, persistReducer } from 'redux-persist'
 import { combineReducers, createStore } from 'redux'
 import storage from 'redux-persist/lib/storage'
-import authReducer from './authReducer'
+import tokenReducer from './tokenReducer'
 
 const rootReducer = combineReducers({
-  auth: authReducer,
+  token: tokenReducer,
 })
 
 const persistConfig = {

@@ -1,30 +1,48 @@
-// import axios, { AxiosResponse } from 'axios'
-// import { useEffect, useState } from 'react'
+import OAuth2 from '../controllers/Discord.controller'
+import { useEffect, useState } from 'react'
 
-export default async function useUser(token: string) {
-  // const [response, setResponse] = useState<Promise<AxiosResponse>>()
+export interface UseUserResponse {
+    [key: string]: any,
+    isLoading: boolean,
+    isError: boolean,
+    reason?: string
+}
 
-  // useEffect(() => {
-  //   setResponse(axios.get('https://discord.com/api/v10/users/@me', {
-  //     headers: {
-  //       Authorization: `Bearer ${token}`
-  //     }
-  //   }))
-  // })
+export default function useUser(token?: string): UseUserResponse {
+    const [response, setResponse] = useState<UseUserResponse>({
+        isLoading: true,
+        isError: false,
+        reason: undefined,
+    })
 
-  // // Мы же ведь все знаем как работает стек-вызовов и что если мы попытаемся await'нуть response, до того как выолнится useEffect будет пиздец?
-  // while (!response)
-  //   continue
-  
-  // const awaitedResponse = await response
+    useEffect(() => {
+        if (!token)
+            return setResponse({
+                reason: 'Token isn\'t provided',
+                isLoading: false,
+                isError: false,
+            })
 
-  // // Я думаю этого достаточно, чтобы понять насколько всё плохо/хорошо.
-  // if (!awaitedResponse.data.id ||
-  //     !awaitedResponse.data.username)
-  //   return new Error(`Failed to get user identify information with that token: ${token}\n` +
-  //                    `Status Code: ${awaitedResponse.status}\n` +
-  //                    `Status Text: ${awaitedResponse.statusText}\n` +
-  //                    `Server Response: ${awaitedResponse.data}`)
-  
-  // return awaitedResponse.data
+        function handleError (reason: string) {
+            setResponse({
+                reason: reason,
+                isLoading: false,
+                isError: true,
+            })
+        }
+        try {
+            OAuth2.getUser(token)
+                .then(response => {
+                    setResponse({...response, isError: false, isLoading: false})
+                }).catch(handleError)
+        } catch (e: any) {
+            setResponse({
+                reason: e.message,
+                isLoading: false,
+                isError: true,
+            })
+        }
+    }, [token])
+
+    return response
 }

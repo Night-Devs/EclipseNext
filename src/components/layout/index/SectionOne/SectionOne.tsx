@@ -1,5 +1,5 @@
+import Header from '../../../general/Header/Header'
 import Styles from './SectionOne.module.scss'
-import Header from '../../../general/Header'
 import React, { Component } from 'react'
 import Welcome from './Welcome'
 

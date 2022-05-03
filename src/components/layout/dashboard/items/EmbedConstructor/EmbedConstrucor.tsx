@@ -1,4 +1,4 @@
-import { Author, Field, Title } from '../../../../types/Discord'
+import { Author, Field, Title } from '../../../../../types/Discord'
 import Styles from './EmbedConstructor.module.scss'
 import { ChangeEvent, useState } from 'react'
 

@@ -1,8 +1,8 @@
+import EmbedConstrucor from '../items/EmbedConstructor/EmbedConstrucor'
+import ToggleSwitch from '../items/Switch/Switch'
 import Styles from './AutoGreetings.module.scss'
-import EmbedConstrucor from '../items/EmbedConstrucor'
-import ToggleSwitch from '../items/ToggleSwitch'
-import { ChangeEvent, useState } from 'react'
-import Select from '../items/Select'
+import Select from '../items/Select/Select'
+import { useState } from 'react'
 
 export default function AutoGreetings() {
   const [isExpanded, setExpanded] = useState(false)

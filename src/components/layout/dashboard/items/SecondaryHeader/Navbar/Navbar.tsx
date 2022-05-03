@@ -1,5 +1,5 @@
-import Link from 'next/link'
 import Styles from './Navbar.module.scss'
+import Link from 'next/link'
 
 export type Selected = 'general' | 'privateRooms' | 'audit' | 'liders' | 'autoModeration' | 'customCommands'
 

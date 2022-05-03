@@ -1,6 +1,6 @@
+import { Guild } from '../../../../../types/Discord'
+import Navbar, { Selected } from './Navbar/Navbar'
 import Styles from './SecondaryHeader.module.scss'
-import { Guild } from '../../../../types/Discord'
-import Navbar, { Selected } from './Navbar'
 
 export default function SecondaryHeader({ defaultSelected = 'general', guild }: {defaultSelected?: Selected, guild: Guild}) {
     return (

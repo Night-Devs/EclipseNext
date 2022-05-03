@@ -1,0 +1,114 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("MONGO_TOKEN")
+}
+
+model DefaultRoles {
+  id        String    @id @default(auto()) @map("_id") @db.ObjectId
+  guildID   String    @unique
+  enabled   Boolean   @default(true)
+  rolesIDs  String[]  @map("roles")
+
+  @@map("defaultRoles")
+}
+
+model Donates {
+  id    String  @id @default(auto()) @map("_id") @db.ObjectId
+  name  String
+  total Int
+
+  @@map("donates")
+}
+
+model Levels {
+  id        String  @id @default(auto()) @map("_id") @db.ObjectId
+  guildID   String
+  memberID  String
+  xp        Int     @default(0)
+
+  @@map("levelsM")
+}
+
+model LevelsSettings {
+  id          String  @id @default(auto()) @map("_id") @db.ObjectId
+  /// {
+  ///   mode: String[],
+  ///   message: Message,
+  ///   deleteTimeout: Int,
+  ///   reaction: String
+  /// }
+  onNewLevel  Json
+
+  /// {
+  ///   roles: String[],
+  ///   members: String[]  
+  /// }
+  admins      Json
+
+  /// {
+  ///   roles: String[],
+  ///   members: String[],
+  ///   channels: String[]
+  /// }
+  exceptions  Json
+  transfer    Boolean @default(true)
+
+  @@map("levelsS")
+}
+
+model Messages {
+  id        String  @id @default(auto()) @map("_id") @db.ObjectId
+  /// 'Goobye' | 'Welcome'
+  type      String 
+  enabled   Boolean @default(true)
+  channelID String
+  /// Message type
+  message   Json
+
+  @@map("messages")
+}
+
+model PrivateVoices {
+  id        String  @id @default(auto()) @map("_id") @db.ObjectId
+  guildID   String
+  enabled   Boolean @default(true)
+  channelID String
+  template  String  @default("[+] {{TAG}}")
+
+  @@map("privateVoices")
+}
+
+//  block Message {
+//    content: VarChar(2000),
+//    embeds: [{
+//      title?: VarChar(256),
+//      type: "rich",
+//      description?: VarChar(4096),
+//      url?: String,
+//      color?: Int,
+//      footer?: {
+//        text: VarChar(2000),
+//        icon_url?: String
+//      },
+//      thumbnail?: {
+//        url: String,
+//      },
+//      image?: {
+//        url: String,
+//      },
+//      author?: {
+//        name: VarChar(256),
+//        url?: String,
+//        icon_url?: String,
+//      },
+//      fields?: [{
+//        name: VarChar(256),
+//        value: VarChar(1024),
+//        inline?: Boolean
+//      }]
+//    }]
+//  }

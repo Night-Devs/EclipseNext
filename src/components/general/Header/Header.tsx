@@ -1,13 +1,12 @@
+import OAuth2 from '../../../controllers/Discord.controller'
 import { CSSProperties, useEffect, useState } from 'react'
-import { getUser } from '../../services/auth'
-// import { subscribe } from 'redux-subscriber'
 import Styles from './Header.module.scss'
-import { store } from '../../store'
+import { store } from '../../../store'
 import Image from 'next/image'
 import Link from 'next/link'
 
 export default function Header({style}: {style?: CSSProperties}) {
-	const token = store.getState().auth.token
+	const token = store.getState().token.accessToken
 	const [user, setUser] = useState<any | undefined>()
 
 	useEffect(
@@ -15,12 +14,10 @@ export default function Header({style}: {style?: CSSProperties}) {
 			if (!token)
 				return
 
-			getUser(token).then(setUser)
+			OAuth2.getUser(token).then(setUser)
 		}
 	, [token])
 	
-	// subscribe('auth.token', console.log) // Here was a bag but while I tried to find out what causes it, it just dissapeared LMAO
-
 	return (
 		<div className='flex justify-sb p-top-20 align-center width-100' style={style}>
 			<div className='flex justify-center align-center m-left-50'>

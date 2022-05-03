@@ -1,6 +1,6 @@
-import React, { Component } from 'react'
+import Button from '../../../general/Button/Button'
 import Styles from './Welcome.module.scss'
-import Button from '../../../general/Button'
+import React, { Component } from 'react'
 
 export default class Welcome extends Component {
     render() {
